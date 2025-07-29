@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Witch Dash</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url("./img/background.gif");
+      background-size: cover;
+      background-position: center;
+      font-family: 'Courier New', Courier, monospace;
+      color: white;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    h1 {
+      font-size: 80px;
+      margin: 0 0 20px 0;
+    }
+
+    p {
+      font-size: 40px;
+      margin: 0 0 30px 0;
+    }
+
+    a {
+      font-size: 24px;
+      padding: 10px 20px;
+      border: 2px solid white;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    a:hover {
+      background-color: white;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+    <h1>Game Over</h1>
+    <p id="finalScore">Score: 0</p>
+    <a href="index.html">Play Again</a>
+
+    <script>
+    // Display score
+    const params = new URLSearchParams(window.location.search);
+    const score = params.get("score") || 0;
+    document.getElementById("finalScore").textContent = "Score: " + score;
+
+    // Press ESC to return to menu
+    document.addEventListener("keydown", (e) => {
+    if (e.code === "Escape") {
+        document.body.style.opacity = 0.5; // visual feedback
+        window.location.href = "menu.html";
+    }
+    });
+
+    </script>
+
+</body>
+</html>
